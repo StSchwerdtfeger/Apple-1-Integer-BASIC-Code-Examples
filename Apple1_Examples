@@ -1,0 +1,363 @@
+################################## Cool Apple 1 Code Examples ###################################
+
+######################
+#### NON-BASIC CODE: #
+######################
+
+# Print all characters like in the Steve Jobs Movie with Ashton Kutscher:
+
+0:A9 00 AA 20 EF FF E8 8A 4C 02 00
+# Hit enter:
+# Output:
+0000: 00 
+
+# Then type and execute:
+0R
+
+# Make sure to understand that 0 and O are not the same!!
+# Aaaaand that the Apple 1 does not have a BACKSPACE function ;)
+# Ctrl + R for Reset and Ctrl + H for Hard Reset (you going to need it).
+
+Output (endless repeat of the following):
+!"#$%&'() *+,-./0123456789:;<=>?@ABCDEFG
+HIJKLMNOPQRSTUVWXYZ[\]^_@ABCDEFGHIJKLMNO
+PQRSTUVWXYZ[\]^_
+!"#$%&'() *+,-./0123456789:;<=>?@ABCDEFG
+HIJKLMNOPQRSTUVWXYZ[\]^_@ABCDEFGHIJKLMNO
+PQRSTUVWXYZ[\]^_
+…
+…
+…
+… 
+
+
+############################################
+##### Apple 1 Integer Basic Code Examples: #
+############################################
+
+# Simple Loop (without):
+# Print here prints the below in an extra line...
+10 PRINT "Bla-Bli-Blub"
+20 GOTO 10
+RUN
+
+# Use "LIST" command to print what was written!
+# Note that the command RUN will not be included...
+>LIST
+   10 PRINT "Bla-Bli-Blub"
+   20 GOTO 10
+   
+# Here it prints "MEOW!!!" next to each other due to the use of ":"
+10 PRINT "MEOW!!!!":
+20 GOTO 10
+RUN
+
+
+# Print Hello World etc.:
+
+10 PRINT "PURR, MEOW-MEOW!"
+20 END
+RUN
+
+# Or just:
+PRINT "PURR, MEOW-MEOW!"
+
+
+
+# Simple for loop printing i, recursively adding 1 to i:
+
+10 FOR I = 1 TO 5
+20 PRINT I
+30 NEXT I
+40 END
+RUN
+
+# OUTPUT
+1
+2
+3
+4
+5
+
+
+
+# For loop with step sequence (quasi t-x algorithm):
+
+10 FOR I = 10 TO 1 STEP -1
+20 PRINT I
+30 NEXT I
+40 PRINT "MEOW, WE ARE GOING TO SPACE!!!"
+50 END
+
+# Output
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+MEOW, WE ARE GOING TO SPACE!!!
+
+
+# Simple arithmetic (square and many more functions 
+# are syntactically not available!! Workaround necessary;
+# see factorial example below):
+
+PRINT 5+5
+# 10
+
+PRINT 5/5
+# 1
+
+PRINT 5*5
+# 25
+
+
+# Parabola function via for loop for values -5 to 5:
+
+10 FOR X = -5 TO 5
+20 GOSUB 100
+30 PRINT X; " -> "; Y
+40 NEXT X
+50 END
+100 LET Y = X * X
+110 RETURN
+
+# Output:
+-5 -> 25
+-4 -> 16
+-3 -> 9
+-2 -> 4
+-1 -> 1
+0 -> 0
+1 -> 1
+2 -> 4
+3 -> 9
+4 -> 16
+5 -> 25
+
+
+# Nested for loop example:
+
+10 FOR I = 1 TO 3
+20 FOR J = 1 TO 3
+30 PRINT I * J
+40 NEXT J
+50 NEXT I
+60 END
+
+# Output:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+
+# Calculating the factorial of an integer number:
+# Recursive loop, since P = 1 is an initial definition,
+# after which within the for loop the previous P, called from 
+# the right side of the (syntax) equation P= P * I is called
+# with the rising (integer steps!) factor I. See below for a 
+# and wise calculation: 
+ 
+10 LET P = 1
+20 FOR I = 1 TO 5
+30 LET P = P * I
+40 NEXT I
+50 PRINT "5! = "; P
+60 END
+
+# Output with text comment string "5! = !":
+5! = 120
+
+
+# HAND-WISE ALGORITHM:
+
+INITIAL P:
+P = 1 
+# FIRST  ITERATION: I = 1
+P = (P=1) * (I=1) = 1
+
+# SECOND ITERATION: I = 2 and P = 1 (again, since 1*1=1)
+P = (P=1) * (I=2) = 2
+
+# THIRD  ITERATION: I = 3
+P = (P=2) * (I=3) = 6
+
+# FORTH  ITERATION: I = 4
+P = (P=6) * (I=4) = 24
+
+# FIVE   ITERATION: I = 5
+P = (P=24) * (I=5) = 120
+
+# => 5! = 120
+
+
+# Bubble sort algorithm. 
+
+Line 10 defines the length of an array. 
+10 DIM A(10)
+20 FOR I = 1 TO 10
+30 LET A(I) = 11 - I
+40 NEXT I
+50 PRINT "BEFORE:"
+60 FOR I = 1 TO 10
+70 PRINT A(I)
+80 NEXT I
+90 REM BUBBLE SORT
+100 FOR I = 1 TO 9
+110 FOR J = 1 TO 9
+120 IF A(J) <= A(J+1) THEN 150
+130 LET T = A(J): LET A(J) = A(J+1): LET A(J+1) = T
+150 NEXT J
+160 NEXT I
+170 PRINT "AFTER:"
+180 FOR I = 1 TO 10
+190 PRINT A(I)
+200 NEXT I
+210 END
+
+# Output:
+BEFORE: 
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+AFTER:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+
+# Sierpinski triangle (right-skewed version):
+# Note that the line 170 just says PRINT
+# since it then plots an empty line. Lines
+# 90, 130 and 150 end with a Semicolon so that
+# "*" or " " get printed in the same (!) line.
+# 170 is then used to go the a next line...
+
+10 LET N = 16
+20 DIM P(N+1)
+30 FOR K = 1 TO N+1
+40 LET P(K) = 0
+50 NEXT K
+60 LET P(1) = 1
+70 FOR R = 0 TO N-1
+80 FOR K = 1 TO N-1-R
+90 PRINT " ";
+100 NEXT K
+110 FOR K = 0 TO R
+120 IF P(K+1) = 1 THEN 150
+130 PRINT " ";
+140 GOTO 160
+150 PRINT "*";
+160 NEXT K
+170 PRINT
+180 FOR M = R+2 TO 2 STEP -1
+190 LET P(M) = (P(M) + P(M-1)) MOD 2
+200 NEXT M
+210 NEXT R
+220 END
+
+# OUTPUT:
+              *
+             **
+            * *
+           ****
+          *   *
+         **  **
+        * * * *
+       ********
+      *       *
+     **      **
+    * *     * *
+   ****    ****
+  *   *   *   *
+ **  **  **  **
+* * * * * * * *
+****************
+
+
+
+# Integer log base 2 of N = 2:
+# Essentially it count how many times N can be halfed, until it drops below 2:
+
+# 10-30 initializes vaiables N, L and X, which is at first a duplicate of N
+# 40 for the case that X (which is essentially N) is not below 2 it jumps
+# the next line, else it moves to 80 to print the current X. The current
+# X is calculated on 50, where X is divided by 2. Then the next line 70
+# moves the process back to checking the condition IF X < 2...
+# For the example below, where N = 2, the log2 will be 1...
+
+10 LET N = 2
+20 LET L = 0
+30 LET X = N
+40 IF X < 2 THEN 80
+50 LET X = X / 2
+60 LET L = L + 1
+70 GOTO 40
+80 PRINT "LOG2("; N; ") = "; L
+90 END
+
+# Output (Note log2(100) = 6.6438 though here it will be rounded to 6 (via a floor()/truncate() equivalent!!):
+LOG2(2) = 1
+
+
+# Quadratic formula  
+
+# Note that Apple 1 integer BASIC does not include a SQRT() function, so there is a work around
+# for that in the code below in order to calculate the roots. 
+# Line 50 stops the algorithm in case its negative (imaginary number would be needed here).
+ 
+
+10 LET A = 2
+20 LET B = 4
+30 LET C = 2
+40 LET D = B*B - 4*A*C
+50 IF D < 0 THEN 200
+60 REM INTEGER SQUARE ROOT OF D
+70 LET R = 0
+80 IF (R+1)*(R+1) > D THEN 110
+90 LET R = R + 1
+100 GOTO 80
+110 LET X1 = (-B + R) / (2*A)
+120 LET X2 = (-B - R) / (2*A)
+130 PRINT "D = "; D
+140 PRINT "SQRT(D) = "; R; " (INTEGER PART)"
+150 PRINT "X1 = "; X1
+160 PRINT "X2 = "; X2
+170 END
+200 PRINT "NO REAL ROOTS (D < 0)"
+210 END
+
+# Output will look like this:
+SQRT(D) = 0 (INTEGER PART)
+X1 = -1
+X2 = -1
+
+
+# One of the most complex lines of code I found was the Star Trek port by Stephen Wozniak.
+# In this video the whole code is shown and can theoretically be typed of to play the game...
+# https://www.youtube.com/watch?v=aWFCTEtUlYA
