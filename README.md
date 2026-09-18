@@ -1,13 +1,13 @@
 # Apple-1-Integer-Basic-Code-Examples
 
 A small collection of code examples. The code should also be compatible with most other forms of BASIC like C64 BASIC etc.,
-but I did not check...
+but I did not check... The first code example in the collection is HEX code to display possible symbols in a loop. 
 
 I used pom1 version 1.0 to emulate the Apple 1. The emulator can be downloaded here: https://pom1.sourceforge.net/?page=downloads 
 
 ### How to run
 
-Open pom1.exe or any other emulator to open the so-called WozMon (first example in the collection is HEX code to display possible symbols in a loop). 
+Open pom1.exe or any other emulator to open the so-called WozMon.
 
 To open Apple 1 integer-BASIC type E000R and hit ENTER. 
 The line "E000:    4c" and the ">" sign will indicate you are running integer-BASIC now. 
@@ -16,6 +16,6 @@ Now just type in the code by hand. Note that the Apple 1 does not have a BACKSPA
 There are other ways, such as loading .txt files with the code into basic. To do so, create a .txt file with the code you want to run and place it into the pom1 folder with the pom1.exe file. 
 Then press Ctrl + L, type in the file name (e.g. code.txt), press 1 for ASCII and then 1 again to simulate the code being typed... Then type RUN and hit enter... 
 
-The official Apple 1 inter-BASIC manual can be found here: https://archive.org/details/apple1_basic_manual/page/n5/mode/2up 
+The official Apple 1 integer-BASIC manual can be found here: https://archive.org/details/apple1_basic_manual/page/n5/mode/2up 
 
 Have fun running ancient code :D
