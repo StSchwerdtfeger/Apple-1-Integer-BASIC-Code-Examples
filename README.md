@@ -5,7 +5,7 @@ but I did not check... The first code example in the collection is HEX code to d
 
 I used pom1 version 1.0 to emulate the Apple 1. The emulator can be downloaded here: https://pom1.sourceforge.net/?page=downloads 
 
-### How to run
+## How to run the code:
 
 Open pom1.exe or any other emulator to open the so-called WozMon.
 
