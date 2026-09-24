@@ -1,5 +1,26 @@
 ################################## Cool Apple 1 Code Examples ###################################
 
+# General Note: Apple 1 does not have a backspace/del key command. 
+# However in BASIC you can overwrite a line e.g. vie
+
+10 PRINT 9
+10 PRINT 10
+20 GOTO 10
+
+# Which results in: 
+
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+…
+
 ######################
 #### NON-BASIC CODE: #
 ######################
