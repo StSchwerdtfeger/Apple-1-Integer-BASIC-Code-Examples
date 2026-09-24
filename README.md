@@ -11,7 +11,7 @@ Open pom1.exe or any other emulator to open the so-called WozMon.
 
 To open Apple 1 integer-BASIC type E000R and hit ENTER. 
 The line "E000:    4c" and the ">" sign will indicate you are running integer-BASIC now. 
-Now just type in the code by hand. Note that the Apple 1 does not have a BACKSPACE function! Either create a syntax error in BASIC and rewrite a line or use Ctrl + H to hard reset and Ctrl + R to reset. Some of the endless loops in the code examples can be stopped via pressing ESC. It then says STOPPED AT and names the line of the code it stopped at (see image below).
+Now just type in the code by hand. Note that the Apple 1 does not have a BACKSPACE function! Either create a syntax error in BASIC and overwrite a line using the same line number, or use Ctrl + H to hard reset or Ctrl + R to reset. Some of the endless loops in the code examples can be stopped via pressing ESC. It then says STOPPED AT and names the line of the code it stopped at (see image below).
 
 <div align="center">
 <img width="350" alt="image" src="https://github.com/user-attachments/assets/ccca80f8-ea1b-469b-b5fb-455940a86446"/>
